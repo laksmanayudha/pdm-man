@@ -1,8 +1,8 @@
-import { app, BrowserWindow } from 'electron';
-import { isDev } from './util.js';
-import { pollResources } from './resourceManager.js';
-import { getPreloadPath } from './pathResolver.js';
 import path from 'path';
+import { app, BrowserWindow, ipcMain } from 'electron';
+import { isDev } from './util.js';
+import { getStaticData, pollResources } from './resourceManager.js';
+import { getPreloadPath } from './pathResolver.js';
 
 app.on('ready', () => {
     const mainWindow = new BrowserWindow({
@@ -18,5 +18,9 @@ app.on('ready', () => {
     }
 
     mainWindow.webContents.openDevTools();
-    pollResources();
+    pollResources(mainWindow);
+
+    ipcMain.handle('getStaticData', () => {
+        return getStaticData();
+    });
 });
