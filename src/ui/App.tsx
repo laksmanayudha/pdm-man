@@ -3,8 +3,8 @@ import reactLogo from './assets/react.svg';
 import viteLogo from './assets/vite.svg';
 import { useMemo, useState } from 'react';
 import { useStatistics } from './useStatistics';
-import './App.css';
 import { Chart } from './Chart';
+import './App.css';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -33,7 +33,7 @@ function App() {
 
       <section id="statistics">
         <div style={{ height: 120 }}>
-          <Chart data={cpuUsages} />
+          <Chart data={cpuUsages} maxDataPoints={50} />
         </div>
       </section>
 
