@@ -1,7 +1,7 @@
 {
   "appId": "com.yudhal.pdm",
   "files": ["dist-electron", "dist-react"],
-  "extraResources": ["dist-electron/preload.cjs"],
+  "extraResources": ["dist-electron/preload.cjs", "src/assets/**"],
   "icon": "public/favicon.svg",
   "mac": {
     "target": "dmg"
